@@ -20,7 +20,6 @@ prettyPlot.m
 # dataset
 a*a
 *.dat
-*.mat
 /datasets/
 
 # test
