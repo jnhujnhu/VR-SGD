@@ -1,0 +1,68 @@
+# Prerequisites
+*.d
+
+# reference
+/S2GD/
+/Code/
+
+# figure
+*.eps
+
+# Intellij
+/.idea/
+
+# Deprecated Api
+data.cpp
+data.hpp
+myProcessOptions.m
+prettyPlot.m
+
+# dataset
+a*a
+*.dat
+*.mat
+/datasets/
+
+# test
+*.c
+test.cpp
+small_test.cpp
+small_test
+*.sh
+*.py
+
+# template
+*.cpp.t
+*.hpp.t
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+*.mexa64
+
+# Executables
+test
+*.exe
+*.out
+*.app
