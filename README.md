@@ -43,7 +43,7 @@ result = Interface(X, y, algorithm, model, regularizer, init_weight, lambda1, L,
 
 ```
 
-##Demo
+## Demo
 One can run `matlab_test` in the MATLAB terminal, a small demo using Adults dataset from [LIBSVM Data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/).
 
 ![](Adult_L1_ASVRG-SVRG.png)
