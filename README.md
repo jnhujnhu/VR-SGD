@@ -36,7 +36,7 @@ L = (0.25 * max(sum(X.^2, 1)) + lambda1); % logistic regression
 sigma = lambda1; % For Katyusha / SAGA in SC case, Strong Convex Parameter
 step_size = 1 / (5 * L);
 
-init_weight = repmat(0, Dim, 1); % Initial weight
+init_weight = zeros(Dim, 1); % Initial weight
 
 is_sparse = issparse(X);
 result = Interface(X, y, algorithm, model, regularizer, init_weight, lambda1, L, step_size, loop, is_sparse, Mode, sigma, lambda2);
@@ -44,6 +44,23 @@ result = Interface(X, y, algorithm, model, regularizer, init_weight, lambda1, L,
 ```
 
 ## Demo
-One can run `matlab_test` in the MATLAB terminal, a small demo using Adults dataset from [LIBSVM Data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/).
+One can run `matlab_test` in the MATLAB terminal, a small demo using Adults dataset from [LIBSVM Data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/) to generate a plot shown as below.
+
+Test environment is MATLAB R2017a with GCC-4.9, Ubuntu 16.04 LTS.
+
+```bash
+>> matlab_test
+Model: L2-logistic
+Algorithm: SAGA
+Time: 3.919867 seconds
+Algorithm: Prox_SVRG
+Time: 3.026332 seconds
+Algorithm: Prox_SVRG
+Time: 3.111989 seconds
+Algorithm: Katyusha
+Time: 5.324524 seconds
+Algorithm: Prox_SVRG
+Time: 3.126436 seconds
+```
 
 ![](https://raw.githubusercontent.com/jnhujnhu/VR-SGD/master/Adult_L2.png)
