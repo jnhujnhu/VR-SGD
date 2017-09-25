@@ -1,10 +1,10 @@
 clear;
 load 'Adult.mat';
 
-%% Parse Data
+%% Add Bias
 X = [ones(size(X, 1), 1) X];
 [N, Dim] = size(X);
-X = X'; 
+X = X';
 
 %% Normalize Data
 sum1 = 1./sqrt(sum(X.^2, 1));
@@ -23,7 +23,7 @@ lambda2 = 10^(-5); % L1 / elastic_net parameter
 L = (0.25 * max(sum(X.^2, 1)) + lambda1); % logistic regression
 sigma = lambda1; % For Katyusha / SAGA in SC case, Strong Convex Parameter
 is_sparse = issparse(X);
-Mode = 1; 
+Mode = 1;
 is_plot = true;
 fprintf('Model: %s-%s\n', regularizer, model);
 

@@ -2,11 +2,11 @@
 
 A demo for VR-SGD(Comparing to some major algorithms).
 
-Method "VR-SGD" described in the paper: "VR-SGD: A Simple Stochastic Variance Reduction Baseline for Machine Learning", Fanhua Shang, Member, IEEE, Yuanyuan Liu, Kaiwen Zhou, James Cheng, and Ivor W. Tsang.
+Method "VR-SGD" is described in the paper: "VR-SGD: A Simple Stochastic Variance Reduction Baseline for Machine Learning", Fanhua Shang, Member, IEEE, Yuanyuan Liu, Kaiwen Zhou, James Cheng, and Ivor W. Tsang.
 
 ## Usage
 
-All algorithms are implemented in C++ including SAGA, SVRG, Prox-SVRG, Katyusha, VR-SGD, and all parameters are passed through MATLAB.
+All algorithms are implemented in C++ including SAGA, SVRG, Prox-SVRG, Katyusha, VR-SGD, and all parameters can be passed through MATLAB.
 
 To run the demo in MATLAB, first run `mex_all` in the MATLAB terminal to generate the mex file.(Note that the compiler should support `c++11`)
 
@@ -46,4 +46,4 @@ result = Interface(X, y, algorithm, model, regularizer, init_weight, lambda1, L,
 ## Demo
 One can run `matlab_test` in the MATLAB terminal, a small demo using Adults dataset from [LIBSVM Data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/).
 
-![](Adult_L1_ASVRG-SVRG.png)
+![](https://raw.githubusercontent.com/jnhujnhu/VR-SGD/master/Adult_L2.png)
