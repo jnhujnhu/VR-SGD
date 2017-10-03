@@ -44,12 +44,12 @@ result = Interface(X, y, algorithm, model, regularizer, init_weight, lambda1, L,
 ```
 
 ## Demo
-One can run `matlab_test` in the MATLAB terminal, a small demo using Adults dataset from [LIBSVM Data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/) to generate a plot shown as below.
+One can run `demo` in the MATLAB terminal, a small demo using Adults(a9a) dataset from [LIBSVM Data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/), to generate a plot shown as below.
 
 Test environment is MATLAB R2017a with GCC-4.9, Ubuntu 16.04 LTS.
 
 ```bash
->> matlab_test
+>> demo
 Model: L2-logistic
 Algorithm: SAGA
 Time: 3.919867 seconds

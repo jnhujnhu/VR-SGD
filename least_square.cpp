@@ -27,7 +27,7 @@ double least_square::zero_component_oracle_dense(double* X, double* Y, size_t N,
         }
         _F += (_inner_xw - Y[i]) * (_inner_xw - Y[i]);
     }
-    _F /= (double) N;
+    _F /= (double)2.0 * N;
     return _F;
 }
 
@@ -42,7 +42,7 @@ double least_square::zero_component_oracle_sparse(double* X, double* Y, size_t* 
         }
         _F += (_inner_xw - Y[i]) * (_inner_xw - Y[i]);
     }
-    _F /= (double) N;
+    _F /= (double)2.0 * N;
     return _F;
 }
 
@@ -53,7 +53,7 @@ double least_square::first_component_oracle_core_dense(double* X, double* Y, siz
         _inner_xw += weights[j] * X[given_index * MAX_DIM + j];
     }
     _loss = _inner_xw - Y[given_index];
-    return 2.0 * _loss;
+    return _loss;
 }
 
 double least_square::first_component_oracle_core_sparse(double* X, double* Y, size_t* Jc, size_t* Ir
@@ -64,7 +64,7 @@ double least_square::first_component_oracle_core_sparse(double* X, double* Y, si
         _inner_xw += weights[Ir[j]] * X[j];
     }
     _loss = _inner_xw - Y[given_index];
-    return 2.0 * _loss;
+    return _loss;
 }
 
 int least_square::classify(double* sample) const{
