@@ -40,13 +40,7 @@ X_SAGA = [0 1 2:3:passes - 2]';
 hist1 = [X_SAGA, hist1];
 clear X_SAGA;
 
-% SVRG
-% For SVRG / Prox_SVRG
-% Mode 1: last_iter--last_iter  ----Standard SVRG
-% Mode 2: aver_iter--aver_iter  ----Standard Prox_SVRG
-% Mode 3: aver_iter--last_iter  ----VR-SGD
-algorithm = 'Prox_SVRG';
-Mode = 1;
+algorithm = 'SVRG';
 step_size = 1 / (4 * L);
 loop = int64(passes / 3); % 3 passes per loop
 fprintf('Algorithm: %s\n', algorithm);
@@ -59,7 +53,6 @@ hist2 = [X_SVRG, hist2];
 
 % Prox_SVRG
 algorithm = 'Prox_SVRG';
-Mode = 2;
 step_size = 1 / (1.85 * L);
 loop = int64(passes / 3); % 3 passes per loop
 fprintf('Algorithm: %s\n', algorithm);
@@ -83,8 +76,7 @@ hist4 = [X_Katyusha, hist4];
 clear X_Katyusha;
 
 % VR-SGD
-algorithm = 'Prox_SVRG';
-Mode = 3;
+algorithm = 'VR_SGD';
 step_size = 1.85 / L;
 loop = int64(passes / 3); % 3 passes per loop
 fprintf('Algorithm: %s\n', algorithm);

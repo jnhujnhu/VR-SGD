@@ -16,14 +16,8 @@ Determine all parameters in a MATLAB file and run the algorithms implemented in 
 ```matlab
 % load dataset variable X,y
 
-algorithm = 'Prox_SVRG'; % SAGA / SVRG / Prox_SVRG / Katyusha
+algorithm = 'VR_SGD'; % SAGA / SVRG / Prox_SVRG / Katyusha / VR_SGD
 loop = int64(passes / 3); % loop count for Prox_SVRG
-
-% For SVRG / Prox_SVRG
-% Mode 1: last_iter--last_iter  ----Standard SVRG
-% Mode 2: aver_iter--aver_iter  ----Standard Prox_SVRG
-% Mode 3: aver_iter--last_iter  ----VR-SGD
-Mode = 2;
 
 passes = 240; % total passes of train set, must be a multiple of 3
 
@@ -54,13 +48,13 @@ Test environment is MATLAB R2017a with GCC-4.9, Ubuntu 16.04 LTS.
 Model: L2-logistic
 Algorithm: SAGA
 Time: 3.919867 seconds
-Algorithm: Prox_SVRG
+Algorithm: SVRG
 Time: 3.026332 seconds
 Algorithm: Prox_SVRG
 Time: 3.111989 seconds
 Algorithm: Katyusha
 Time: 5.324524 seconds
-Algorithm: Prox_SVRG
+Algorithm: VR_SGD
 Time: 3.126436 seconds
 ```
 
@@ -73,13 +67,13 @@ There is also a demo for sparse dataset rcv1(binary) from [LIBSVM Data](https://
 Model: L2-logistic
 Algorithm: SAGA
 Time: 7.143901 seconds
-Algorithm: Prox_SVRG
+Algorithm: SVRG
 Time: 5.322789 seconds
 Algorithm: Prox_SVRG
 Time: 5.626229 seconds
 Algorithm: Katyusha
 Time: 9.928631 seconds
-Algorithm: Prox_SVRG
+Algorithm: VR_SGD
 Time: 5.828326 seconds
 ```
 

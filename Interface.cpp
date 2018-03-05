@@ -105,7 +105,8 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
             stored_F = &(*vec_stored_F)[0];
             len_stored_F = vec_stored_F->size();
         }
-        else if(strcmp(_algo, "Prox_SVRG") == 0) {
+        else if(strcmp(_algo, "SVRG") == 0) {
+            Mode = 1;
             if(is_sparse)
                 vec_stored_F = grad_desc_sparse::Prox_SVRG(X, Y, Jc, Ir, N, model, iteration_no, Mode, L, step_size,
                     is_store_result);
@@ -115,7 +116,30 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
             stored_F = &(*vec_stored_F)[0];
             len_stored_F = vec_stored_F->size();
         }
-        else if(strcmp(_algo, "SVRG") == 0) {
+        else if(strcmp(_algo, "Prox_SVRG") == 0) {
+            Mode = 2;
+            if(is_sparse)
+                vec_stored_F = grad_desc_sparse::Prox_SVRG(X, Y, Jc, Ir, N, model, iteration_no, Mode, L, step_size,
+                    is_store_result);
+            else
+                vec_stored_F = grad_desc_dense::Prox_SVRG(X, Y, N, model, iteration_no, Mode, L, step_size,
+                    is_store_result);
+            stored_F = &(*vec_stored_F)[0];
+            len_stored_F = vec_stored_F->size();
+        }
+        else if(strcmp(_algo, "VR_SGD") == 0) {
+            Mode = 3;
+            if(is_sparse)
+                vec_stored_F = grad_desc_sparse::Prox_SVRG(X, Y, Jc, Ir, N, model, iteration_no, Mode, L, step_size,
+                    is_store_result);
+            else
+                vec_stored_F = grad_desc_dense::Prox_SVRG(X, Y, N, model, iteration_no, Mode, L, step_size,
+                    is_store_result);
+            stored_F = &(*vec_stored_F)[0];
+            len_stored_F = vec_stored_F->size();
+        }
+        else if(strcmp(_algo, "SVRG_origin") == 0) {
+            Mode = 1;
             if(regularizer != regularizer::L2)
                 mexErrMsgTxt("405 SVRG not applicable to non-differentiable regularizer.");
             if(is_sparse)
